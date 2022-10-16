@@ -1,0 +1,232 @@
+:root {
+  --primary-color: cornflowerblue;
+  --background-color: #FEFAE0;
+  --button-text-color: #fff;
+}
+
+/* Universal CSS */
+* {
+  box-sizing: border-box;
+}
+  
+body {
+    background-color: var(--background-color);
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 150%;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.about-me-section {
+  margin: 10px;
+}
+
+.about-me-section a {
+  text-decoration: none;
+}
+
+.about-me-table {
+  margin: 10px;
+}
+
+ /* Header CSS Code */
+.page-header {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.page-header__item {
+    flex: 0 1 200px;
+}
+
+.page-header__item:last-child {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.logo {
+    width: 300px;
+}
+
+.button {
+  /* overwrites browser defaults and resets the border */
+  border: none;
+  display: inline-block;
+  /* takes the font from the outer container */
+  font-family: inherit;
+  /* styles the button */
+  background-color: var(--primary-color);
+  color: var(--button-text-color);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 2px;
+  /* width of the border, type, color */
+  border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+  transition: 0.2s opacity;
+}
+
+.button:hover,
+.button:focus {
+  /* lets the mouse appear as a hand when hovering over the button */
+  cursor: pointer;
+  /* reduces the opacity of the button to 80% */
+  opacity: 0.8;
+}
+
+ /* Navigation CSS Code */
+ .navigation-list {
+    list-style-type: none;
+}
+
+.navigation-list li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+nav a:link {
+  text-decoration: none;
+}
+
+/* unvisited link */
+nav a:link {
+  color: black;
+}
+  
+  /* visited link */
+nav a:visited {
+  color: darkgray;
+}
+  
+  /* mouse over link */
+nav a:hover {
+  color: var(--primary-color);
+}
+  
+  /* selected link */
+nav a:active {
+  color: blue;
+}
+
+ /* Main Content CSS Code */
+.profile_portrait {
+  float: left;
+  height: auto;
+  width: 250px;
+  margin-right: 40px;
+  border-radius: 50%;
+}
+
+.profile {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-me-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.about-me-section {
+  text-align: center;
+}
+
+/* start grid fallback */
+.project-item {
+  display: inline-block;
+  width: 33%;
+}
+/* end grid fallback */
+
+/* Grid Layout Code */
+@supports (display: grid) {
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.project-item {
+  background-color: gray;
+  padding: 10px;
+  width: auto;
+  min-height: auto;
+  margin: 0;
+}
+}
+
+/* Footer CSS Code */
+.page-footer {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media all and (max-width: 500px) {
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .project-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .project-list {
+    grid-gap: 10px;
+  }
+  .project-item:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    fill: #edc655;
+  }
+  50% {
+    fill: #fcffad;
+  }
+  100% {
+    fill: #f76414;
+  }
+}
+
+.sun {
+  animation: 4s color-change infinite alternate linear;
+}
+
+@keyframes cloud-move {
+  from {
+    transform: translate(0, 50px);
+  }
+  to {
+    transform: translate(200px, 50px);
+  }
+}
+
+.cloud-front {
+  animation: 30s cloud-move infinite alternate linear;
+}
+
+@keyframes cloud-move-reverse {
+  from {
+    transform: translate(446px, 48px);
+  }
+  to {
+    transform: translate(100px, 48px);
+  }
+}
+
+.cloud-back {
+  animation: 34s cloud-move-reverse infinite alternate linear;
+}
